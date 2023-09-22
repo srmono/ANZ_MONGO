@@ -1,3 +1,6 @@
+db.posts.drop()
+db.posts.findOne()
+
 db.createCollection("posts", {
     validator: {
         $jsonSchema: {

@@ -3,7 +3,7 @@ use user
 db.users.find().pretty()
 
 db.users.updateOne(
-    { _id: ObjectId("6271d9a277ecc9828367e7c4") },
+    { _id: ObjectId("650bfb6353bdb6e5af6f4698") },
     {
         $set: {
             hobbies: [
@@ -32,7 +32,7 @@ db.users.updateMany(
 )
 
 db.users.updateOne(
-    { _id: ObjectId("6502a5bae1a90af0abffc769") },
+    { _id: ObjectId("650bfb6353bdb6e5af6f4698") },
     {
         $set: {
             age: 40,
@@ -48,6 +48,7 @@ db.users.updateOne(
     }
 )
 
+-- error
 db.users.updateOne(
     {name: "snuti"},
     {
@@ -55,6 +56,7 @@ db.users.updateOne(
         $set: {age: 40}
     }
 )
+
 
 db.users.updateOne(
     { name: "Chris"},
@@ -78,8 +80,6 @@ db.users.updateMany({isSporty: true}, {$unset: {phone: ""}})
 --rename fields
 
 db.users.updateMany({}, { $rename : { age: "totalAge" }})
-
-
 
 -- Understanding Upsert()
 

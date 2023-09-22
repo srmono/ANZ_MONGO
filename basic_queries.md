@@ -10,6 +10,15 @@ mongod
     --logpath "C:\Program Files\MongoDB\Server\4.4\log\mongod.log" 
     --port 27072
 
+mongo 
+    --ssl 
+    --host localhost 
+    --port 27017 
+    --username your_username 
+    --password your_password 
+    --authenticationDatabase admin
+    
+
 -- To connect Mongo shell
 mongo 
 mongo --port 27071 

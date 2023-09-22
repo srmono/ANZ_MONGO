@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri : mongodb+srv://vsrao:V1ltrE3Uxf3Sd51E@cluster0.bmnuk.mongodb.net/?retryWrites=true&w=majority
+      database : todomanager

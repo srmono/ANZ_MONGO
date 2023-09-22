@@ -74,6 +74,7 @@ db.hobbies.insertMany([
     {_id: "hiking", name: "Hiking"}
 ], {ordered: false})
 
+
 -- Write concern
 
 db.persons.find().pretty()
@@ -89,6 +90,8 @@ db.persons.insertOne({ name: "Cherry", age: 41}, {writeConcern: {w:1, j: true, w
 -- Import data
 
 mongoimport tv-shows.json -d movieData -c movies --jsonArray --drop
+
+mongoimport filepath/filename -d db_name -c coll_name --jsonArray --drop 
 
 use movieData
 db.movies.find().pretty()

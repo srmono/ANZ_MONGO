@@ -1,0 +1,62 @@
+Encryption
+
+Generate or Obtain Encryption Keys :
+
+-- For Data at Rest Encryption
+For Data at Rest Encryption: MongoDB uses the WiredTiger storage engine, which supports encryption at rest. To enable it, you'll need an encryption key. You can generate a key using a tool like OpenSSL:
+
+openssl rand -base64 96 > mongodb-keyfile
+chmod 600 mongodb-keyfile
+
+
+Configure MongoDB for Encryption
+Edit the MongoDB configuration file (typically mongod.conf)
+
+storage:
+  encryption:
+    keyFile: /path/to/mongodb-keyfile
+
+
+
+
+-- For TLS/SSL Encryption: 
+If you want to enable encryption for data transmitted between clients and the MongoDB server, you'll need a TLS/SSL certificate and key. You can either generate self-signed certificates or obtain them from a trusted certificate authority.
+
+
+
+Edit the MongoDB configuration file and configure TLS/SSL settings
+
+
+net:
+  bindIp: 127.0.0.1
+  port: 27017
+  ssl:
+    mode: requireSSL
+    PEMKeyFile: /path/to/ssl/key.pem
+    PEMKeyPassword: your_password
+    CAFile: /path/to/ssl/ca.pem
+
+
+-- Restart service/server
+
+sudo service mongod restart
+
+
+-- Test the encryption
+mongo --ssl --host localhost --port 27017 --username your_username --password your_password --authenticationDatabase admin
+
+---------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+

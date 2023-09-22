@@ -1,5 +1,4 @@
-db.posts.drop()
-db.posts.findOne()
+
 
 db.runCommand({
     collMod: "posts",

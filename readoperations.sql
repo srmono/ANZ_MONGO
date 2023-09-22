@@ -46,8 +46,7 @@ db.movies.find({"rating.average": {$gt : 7}}).
 
 db.movies.find({"rating.average": { $gt: 7 }}).pretty()
 
----
-
+--- array 
 db.movies.find({genres: "drama"}).pretty()
 
 "Drama"
@@ -63,6 +62,7 @@ db.movies.find({
         $in: [30, 42]
     } 
 }).pretty()
+
 
 db.movies.find({
     runtime: {
@@ -461,7 +461,9 @@ db.movies.find().sort({ "rating.average": 1 }).pretty()
 
 db.movies.find().sort({ "rating.average": 1, runtime: -1 }).pretty()
 
-db.movies.find().sort({ "rating.average": 1, runtime: -1 }).sort({"rating.average": 1}).pretty()
+db.movies.find()
+    .sort({ "rating.average": 1, runtime: -1 })
+    .sort({"rating.average": 1}).pretty()
 
 db.movies.find()
     .sort({ "rating.average": 1, runtime: -1 })
@@ -473,7 +475,6 @@ db.movies.find()
     .sort({ "rating.average": 1, runtime: -1 })
     .sort({"rating.average": 1})
     .skip(100)
-    .count()
 
 
 -- Include specific fields
